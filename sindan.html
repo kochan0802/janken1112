@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>オーストラリア旅行先診断</title>
+    <meta charset="UTF-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <!-- slick jsの読込み -->
+    <link rel="stylesheet" type="text/css" href="slick.css">
+    <link rel="stylesheet" type="text/css" href="slick-theme.css">
+
+    <!-- slickの設定 -->
+    <script type="text/javascript">
+        $(function () {
+            $(".pictures").slick({
+                accessibility: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                speed: 300,
+            });
+        });
+    </script>
+
+    <script>
+        var qArray = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"];
+        var yesArray = ["q2", "q3", "a1", "a2", "q6", "a4", "a5", "a6"];
+        var noArray = ["q3", "q3", "q4", "q5", "a3", "q7", "q8", "a7"];
+        var n = 0;
+        function OnYesClick() {
+            RewriteSrc(yesArray[n])
+        }
+        function OnNoClick() {
+            RewriteSrc(noArray[n])
+        }
+        function RewriteSrc(nextId) {
+            if (nextId.startsWith("q") == true) {
+                for (i = 0; i < qArray.length + 1; i++) {
+                    if (qArray[i] == nextId) {
+                        document.getElementById(qArray[n]).className = "txt_hide";
+                        n = i;
+                        document.getElementById(qArray[n]).className = "txt_display";
+                        break;
+                    }
+                }
+            } else {
+                document.getElementById(qArray[n]).className = "txt_hide";
+                document.getElementById("btn_area").className = "txt_hide";
+                document.getElementById("result_area").className = "txt_display";
+                document.getElementById(nextId).className = "txt_display";
+            }
+        }
+        function OnAgainClick() {
+            document.getElementById(yesArray[n]).className = "txt_hide";
+            document.getElementById(noArray[n]).className = "txt_hide";
+            n = 0;
+            document.getElementById(qArray[n]).className = "txt_display";
+            document.getElementById("btn_area").className = "txt_display";
+            document.getElementById("result_area").className = "txt_hide";
+        }
+    </script>
+
+    <style>
+        h1 {
+            text-align: center;
+            padding: 1rem 2rem;
+            color: #fff;
+            background-image: -webkit-gradient(linear, left top, right top, from(#fa709a), to(#fee140));
+            background-image: -webkit-linear-gradient(left, #fa709a 0%, #fee140 100%);
+            background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+        }
+
+        .main_title {
+            text-align: center;
+            display: block;
+            /*線の種類（実線） 太さ 色*/
+            border-bottom: solid 3px black;
+            width: 500px;
+            border-top: solid 3px gray;
+            margin: auto
+        }
+
+        .sub_title {
+            position: relative;
+            color: #eda1d0;
+            font-size: 20px;
+            padding: 10px 0;
+            text-align: center;
+            margin: 1.5em 0;
+        }
+
+        .sub_title:before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            width: 150px;
+            height: 58px;
+            border-radius: 50%;
+            border: 5px solid #eda1d0;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+        .pictures {
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 40px;
+
+
+        }
+
+        #main {
+            text-align: center;
+        }
+
+        #question_area {
+            font-size: 1.5em;
+        }
+
+        .txt_hide {
+            display: none;
+        }
+
+        .txt_display {
+            display: block;
+        }
+
+        #btn_area {
+            margin-top: 30px;
+        }
+
+        #btn_yes,
+        #btn_no {
+            display: inline-block;
+            text-decoration: none;
+            width: 100px;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #btn_yes {
+            background: #57e7f7;
+            opacity: 0.7;
+        }
+
+        #btn_yes:hover,
+        #btn_no:hover {
+            opacity: 1;
+        }
+
+        #btn_no {
+            background: #f36ac7;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>オーストラリア旅行先診断</h1>
+    <h2 class="main_title">もっとディープに楽しめる旅行先をご案内！</h2>
+
+    <div class="pictures">
+        <div><img src="img_2/aus_1.jpg" width="600" height="450" /></div>
+        <div><img src="img_2/aus_2.jpg" width="600" height="450" /></div>
+        <div><img src="img_2/aus_12.jpg" width="600" height="450" /></div>
+        <div><img src="img_2/aus_5.jpg" width="600" height="450" /></div>
+        <div><img src="img_2/aus_6.jpg" width="600" height="450" /></div>
+        <div><img src="img_2/aus_7.jpg" width="600" height="450" /></div>
+        <div><img src="img_2/aus_8.jpg" width="600" height="450" /></div>
+        <div><img src="img_2/aus_9.jpg" width="600" height="450" /></div>
+        <div><img src="img_2/aus_10.jpg" width="600" height="450" /></div>
+        <div><img src="img_2/aus_11.jpg" width="600" height="450" /></div>
+    </div>
+
+    <p style="text-align:center">オーストラリアといえば”シドニー”や”メルボル”を真っ先に思いつきますが、
+        魅力的な場所は山ほどあって、知られている観光地は実は鉱山の一角なんです！
+        <br><br>
+        シドニーが位置するニューサウスウェルズ（NSW州),
+        ヨーロッパの街並みが楽しめるメルボルンのある（VIC州）、リゾート地で有名な
+        ゴールドコーストやケアンズがある（QLD州）など計8つの州があります。
+        <br><br>
+        オーストラリアは州ごとに色が異なり、まるで違う国にいるかのような雰囲気を楽しめますよ。
+        <br><br>
+        何回行っても楽しめる、魅惑の国なんです！まだ行ったことがない人も、何度も足を運んでる人も、
+        自分にぴったりの”州”を見つけて、旅に出かけてみませんか？
+    </p>
+    <hr />
+    <div id="main">
+        <div id="question_area">
+            <div id="q1" class="txt_display">オーストラリアに行ったことがない</div>
+            <div id="q2" class="txt_hide">コアラを抱っこしてみたい</div>
+            <div id="q3" class="txt_hide">ロードトリップがしてみたい</div>
+            <div id="q4" class="txt_hide">カフェ巡りを楽しみたい</div>
+            <div id="q5" class="txt_hide">街歩きより自然を満喫したい</div>
+            <div id="q6" class="txt_hide">世界の中心で愛を叫びたい</div>
+            <div id="q7" class="txt_hide">ワイナリー巡りがしたい</div>
+            <div id="q8" class="txt_hide">世界一美味しい空気を吸ってみたい</div>
+        </div>
+        <div id="result_area" class="txt_hide">
+            <p>あなたにおすすめの旅行先は……</p>
+            <div id="a1" class="txt_hide">
+                <h2 class="sub_title">クイーンズランド（QLD）州</h2>
+                <img src="img_2/about_greatr.jpg" alt="グレートバリアリーフ">
+                <p style="text-align:center">オーストラリア初心者で、コアラを抱っこしてみたいあなたにぴったりなエリア！</p>
+                <p style="text-align:center">日本人に人気なゴールドコーストやケアンズといった海が綺麗な観光地では、
+                    ホエールウォッチングやサーフィン、スカイダイビングなどアクティビティが体験できます。
+                    新婚旅行先としても人気な、グレートバリアリーフが広がる「ハミルトン島」では、
+                    白い砂浜で非日常でゆっくりとした時間が過ごせるなど魅力満載です。</p>
+                <p style="text-align:center">自然だけでなく、第三の都市ブリスベンでは、美味しいご飯や街歩きが楽しめますよ♪</p>
+            </div>
+
+            <div id="a2" class="txt_hide">
+                <h2 class="sub_title">ビクトリア（VIC）州</h2>
+                <img src="img_2/aus_11.jpg" alt="カフェ">
+                <p style="text-align:center">ヨーロッパの街並みが楽しめるメルボルンは、カフェの聖地！
+                    どこに行っても美味しいコーヒーとパティスリーが楽しめます。</p>
+                <p style="text-align:center">また世界一のクロワッサンと称された「LUNE（ルーン）」本店もありますよ！
+                    世界で最も美しい図書館に常にランクインする「ブリスベン州立図書館」もあるので、
+                    街散策がおすすめです。</p>
+                <p style="text-align:center">少しシティーから離れ、車を走らせると、世界一小さい「フェアリーペンギン」が見られる
+                    フィリップアイランドや、70以上ものワイナリーが立ち並ぶ「ヤラヴァレー」、
+                    壮大な景色の中ドライブが楽しめる海岸道路グレートオーシャンロード」など、
+                    見どころがたくさんあります。</p>
+            </div>
+            <div id="a3" class="txt_hide">
+                <h2 class="sub_title">ニューサウスウェールズ（NSW）州</h2>
+                <img src="img_2/aus_7.jpg" alt="シドニーハーバー">
+                <p style="text-align:center">シドニーが位置するこの州では、オーストラリア初めての方には最適なエリアです。</p>
+                <p style="text-align:center">最も有名な観光地「オペラハウス」をはじめ、カジノやショッピングが楽しめる
+                    「ダーリ ングハーバー」、</p>
+                <p style="text-align:center">レトロな街並みが色濃く残り、週末はマーケットも開催される
+                    「ザ・ロックス」、</p>
+                シドニー唯一の遊園地でレトロな「ルナ・パーク」など、シティだけでも十分楽しめます。</p>
+                <p style="text-align:center">シティにはトラム、電車、バスが通っているので、レンタカーも必要なし！</p>
+                <p style="text-align:center">少し自然も楽しみたい方にはバスで約30分で行けるボンダイ・ビーチや、
+                    市街地から車で約2時間の世界遺産のブルーマウンテンズ国立公園もおすすめです。</p>
+
+            </div>
+            <div id="a4" class="txt_hide">
+                <h2 class="sub_title">ノーザンテリトリー（NT）州</h2>
+                <img src="img_2/aus_12.jpg" alt="ウルル">
+                <p style="text-align:center">世界の中心で愛を叫ぶならノーザンテリトリー州に位置する一枚岩「ウルル／エアーズロック」
+                    へ行くしかありません！</p>
+                <p style="text-align:center">現在は登頂禁止になっていますが、遠目から見る朝日や夕日影で色が変わっていく姿は圧巻です。</p>
+                <p style="text-align:center">ちなみに麓にはラクダファームがあり、ウルル周辺をラクダに乗って楽しむツアーも
+                    開催されていますよ。</p>
+                <p style="text-align:center">さらに周辺には「カタジュタ」や「キングスキャニオン」といったハイキングできる絶景もあります。
+                    雄大な景色を拝みながら、贅沢食事を楽しみ、素敵なホテルでゆったりと非日常を
+                    過ごしてみませんか？</p>
+                <p style="text-align:center"> 時期は4、5月（秋）、9～11月（春）がおすすめです。</p>
+            </div>
+            <div id="a5" class="txt_hide">
+                <h2 class="sub_title">南オーストラリア（SA）州</h2>
+                <img src="img_2/aus_2.jpg" alt="ワイナリー">
+                <p style="text-align:center">ヨーロッパ調の街並みやワイン、大自然を存分に味わえる穴場的な場所が南オーストラリアです。
+                <p style="text-align:center">州都のアデレードは、街の綺麗さや治安の良さ、住みやすさから
+                    「世界で最も住みやすい都市」世界3位に選出されています。</p>
+                <p style="text-align:center">コンパクトな街ですが、市民の台所「アデレード中央市場（Central
+                    Market）」や入場無料で楽しめる美術館・博物館は必見です。</p>
+                <p style="text-align:center">また南オーストラリアに来たらぜひ車を借りて、ワイナリー巡りを楽しんでみてください。
+                    世界的に有名なバロッサ・バレー（Barossa Valley）やマクラーレン・ベール
+                    （McLaren Vale）、アデレード・ヒルズ（Adelaide Hills）など、
+                    有名なワイナリーエリアがひしめいていますよ。</p>
+                <p style="text-align:center">さらに、手付かずな自然が残り、野生動物を見るのに最適なカンガルー島もあり、
+                    きっと何度も訪れたくなるはず！</p>
+            </div>
+            <div id="a6" class="txt_hide">
+                <h2 class="sub_title">タスマニア（TAS）州</h2>
+                <img src="img_2/aus_8.jpg" alt="ワイングラスベイ">
+                <p style="text-align:center">オーストラリアの秘境・タスマニアは、島全体のほぼ30％が国立公園に指定され、
+                    そのほとんどが世界自然遺産にも指定された、まさに手付かずの自然の宝庫。</p>
+                <p style="text-align:center">WMO（世界気象機関）によると「世界で最も空気と水がきれいな場所」とされているんです。</p>
+                <p>style="text-align:center"綺麗な水のおかげで、ワインや牡蠣がとっても美味しいですよ。</p>
+                <p style="text-align:center">またタスマニアではカンガルー、ワラビーはもちろん、フェアリーペンギン、ウォンバット、タスマニアデビル、
+                    ハリモグラ、カモノハシなどに出会えるかもしれません。</p>
+                <p style="text-align:center">ジブリ好きにはたまらない、魔女の宅急便のキキが働くパン屋のモデルになったとされるお店もあるので、
+                    ぜひ立ち寄ってみてくださいね</p>
+            </div>
+            <div id="a7" class="txt_hide">
+                <h2 class="sub_title">西オーストラリア（WA）州</h2>
+                <img src="img_2/aus_1.jpg" alt="カルバリー">
+                <p style="text-align:center">オーストラリアの国土の3分の1の広さを誇る西オーストラリア州は、
+                    オーストラリアの魅力を凝縮したかのような見どころ満載な場所です！</p>
+                <p style="text-align:center">パースから北へ580kmの場所にあるカルバリー国立公園内では、
+                    4億年前から少しずつ堆積した峡谷の絶景を見る事ができますよ。</p>
+                <p style="text-align:center">インド洋に沈む最高の夕日がみられるブルームの「ケーブルビーチ」では、ラクダライドも
+                    外せません。</p>
+                <p style="text-align:center">州都「パース」は、近代的で街がとても整備されています。
+                    週末にオープンする「フリーマントル・マーケット」はお土産を探すのにもぴったりな場所です。</p>
+                さらに、そこからフェリーで行ける「ロットネス島」には世界一幸せな動物として知られる
+                <p>style="text-align:center"クアッカワラビーにも出会えちゃいます</p>
+
+            </div>
+            <a href="javaScript:OnAgainClick();">もう1回</a>
+        </div>
+        <div id="btn_area" class="txt_display">
+            <a href="javascript:OnYesClick();" id="btn_yes">Yes</a>
+            <a href="javascript:OnNoClick();" id="btn_no">No</a>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</body>
+<html>
